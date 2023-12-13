@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="createQuizScrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="764.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.capstoneapp.HelloController">
+<ScrollPane fx:id="createQuizScrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1051.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.capstoneapp.HelloController">
    <content>
       <AnchorPane fx:id="createQuizMainPane" prefHeight="600.0" prefWidth="800.0">
          <children>
@@ -27,8 +27,8 @@
                      <children>
                         <Pane fx:id="MultipleChoiceQuestionCard" prefHeight="253.0" prefWidth="435.0" style="-fx-background-color: #d3d3d3;">
                            <children>
-                              <TextArea fx:id="MCQQuestionTitleTextArea" layoutX="18.0" layoutY="9.0" prefHeight="43.0" prefWidth="399.0" promptText="Question" />
-                              <AnchorPane fx:id="choicesContainer" layoutX="16.0" layoutY="70.0" prefHeight="170.0" prefWidth="404.0">
+                              <TextArea fx:id="MCQTextArea" layoutX="18.0" layoutY="15.0" prefHeight="43.0" prefWidth="399.0" promptText="Question" />
+                              <AnchorPane fx:id="MCQContainer" layoutX="16.0" layoutY="70.0" prefHeight="170.0" prefWidth="404.0">
                                  <children>
                                     <RadioButton fx:id="MCQChoice1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="RadioButton">
                                        <font>
@@ -38,7 +38,7 @@
                                           <ToggleGroup fx:id="MCQChoices" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <Button layoutX="14.0" layoutY="54.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="+ Add Choices">
+                                    <Button fx:id="MCQAddChoicesButton" layoutX="14.0" layoutY="54.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="115.0" text="+ Add Choices">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -50,27 +50,41 @@
                               <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                            </TilePane.margin>
                         </Pane>
-                        <Pane fx:id="TrueOrFalseQuestionCard" prefHeight="253.0" prefWidth="435.0" style="-fx-background-color: #d3d3d3;">
+                        <Pane fx:id="TFQuestionCard" prefHeight="253.0" prefWidth="435.0" style="-fx-background-color: #d3d3d3;">
                            <children>
-                              <TextArea fx:id="TFQuestionTitleTextArea" layoutX="18.0" layoutY="9.0" prefHeight="43.0" prefWidth="399.0" promptText="Question" />
-                              <AnchorPane fx:id="choicesContainer1" layoutX="16.0" layoutY="70.0" prefHeight="170.0" prefWidth="404.0">
+                              <TextArea fx:id="TFQuestionTextArea" layoutX="18.0" layoutY="16.0" prefHeight="43.0" prefWidth="399.0" promptText="Question" />
+                              <AnchorPane fx:id="TFChoicesContainer" layoutX="16.0" layoutY="70.0" prefHeight="170.0" prefWidth="404.0">
                                  <children>
-                                    <RadioButton fx:id="trueRadioButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="True">
+                                    <RadioButton fx:id="TFtrueRadioButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="True">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                        <toggleGroup>
-                                          <ToggleGroup fx:id="MCQChoices1" />
+                                          <ToggleGroup fx:id="trueOrFalseChoices" />
                                        </toggleGroup>
                                     </RadioButton>
-                                    <RadioButton fx:id="falseRadioButton" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" text="False">
+                                    <RadioButton fx:id="TFfalseRadioButton" layoutX="14.0" layoutY="55.0" mnemonicParsing="false" text="False" toggleGroup="$trueOrFalseChoices">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="MCQChoices11" />
-                                       </toggleGroup>
                                     </RadioButton>
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                           <TilePane.margin>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </TilePane.margin>
+                        </Pane>
+                        <Pane fx:id="IdentificationQuestionCard" prefHeight="158.0" prefWidth="436.0" style="-fx-background-color: #d3d3d3;">
+                           <children>
+                              <TextArea fx:id="IdentificationQuestionTextArea" layoutX="18.0" layoutY="16.0" prefHeight="43.0" prefWidth="399.0" promptText="Question" />
+                              <AnchorPane fx:id="IdentificationAnswerFieldContainer" layoutX="16.0" layoutY="70.0" prefHeight="170.0" prefWidth="404.0">
+                                 <children>
+                                    <TextField fx:id="IdentificationAnswerTextField" layoutX="4.0" layoutY="29.0" prefHeight="31.0" prefWidth="394.0" promptText="Answer">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
                                  </children>
                               </AnchorPane>
                            </children>
@@ -100,13 +114,10 @@
                                           <Font name="System Bold" size="12.0" />
                                        </font>
                                     </RadioButton>
-                                    <RadioButton fx:id="identificationRadioButton" contentDisplay="CENTER" layoutX="241.0" layoutY="2.0" mnemonicParsing="false" text="Identification" textAlignment="CENTER">
+                                    <RadioButton fx:id="identificationRadioButton" contentDisplay="CENTER" layoutX="241.0" layoutY="2.0" mnemonicParsing="false" text="Identification" textAlignment="CENTER" toggleGroup="$questionType">
                                        <font>
                                           <Font name="System Bold" size="12.0" />
                                        </font>
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="questionType1" />
-                                       </toggleGroup>
                                     </RadioButton>
                                  </children>
                               </AnchorPane>

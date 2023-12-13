@@ -13,40 +13,55 @@ import javafx.scene.layout.Pane;
 public class HelloController {
 
     @FXML
+    private AnchorPane IdentificationAnswerFieldContainer;
+
+    @FXML
+    private TextField IdentificationAnswerTextField;
+
+    @FXML
+    private Pane IdentificationQuestionCard;
+
+    @FXML
+    private TextArea IdentificationQuestionTextArea;
+
+    @FXML
+    private Button MCQAddChoicesButton;
+
+    @FXML
     private RadioButton MCQChoice1;
 
     @FXML
     private ToggleGroup MCQChoices;
 
     @FXML
-    private ToggleGroup MCQChoices1;
+    private AnchorPane MCQContainer;
 
     @FXML
-    private ToggleGroup MCQChoices11;
-
-    @FXML
-    private TextArea MCQQuestionTitleTextArea;
+    private TextArea MCQTextArea;
 
     @FXML
     private Pane MultipleChoiceQuestionCard;
 
     @FXML
-    private TextArea TFQuestionTitleTextArea;
+    private AnchorPane TFChoicesContainer;
 
     @FXML
-    private Pane TrueOrFalseQuestionCard;
+    private Pane TFQuestionCard;
+
+    @FXML
+    private TextArea TFQuestionTextArea;
+
+    @FXML
+    private RadioButton TFfalseRadioButton;
+
+    @FXML
+    private RadioButton TFtrueRadioButton;
 
     @FXML
     private Button addQuestionButton;
 
     @FXML
     private AnchorPane addQuestionButtonPane;
-
-    @FXML
-    private AnchorPane choicesContainer;
-
-    @FXML
-    private AnchorPane choicesContainer1;
 
     @FXML
     private AnchorPane createQuizContainer;
@@ -58,9 +73,6 @@ public class HelloController {
     private ScrollPane createQuizScrollPane;
 
     @FXML
-    private RadioButton falseRadioButton;
-
-    @FXML
     private RadioButton identificationRadioButton;
 
     @FXML
@@ -70,18 +82,15 @@ public class HelloController {
     private ToggleGroup questionType;
 
     @FXML
-    private ToggleGroup questionType1;
-
-    @FXML
     private AnchorPane questionTypeSelectorContainer;
 
     @FXML
     private TextField quizTitleTextField;
 
     @FXML
-    private RadioButton trueOrFalseRadioButton;
+    private ToggleGroup trueOrFalseChoices;
 
     @FXML
-    private RadioButton trueRadioButton;
+    private RadioButton trueOrFalseRadioButton;
 
 }
