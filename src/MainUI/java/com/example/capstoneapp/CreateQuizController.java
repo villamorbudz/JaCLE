@@ -4,58 +4,16 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 
 public class CreateQuizController {
 
     @FXML
-    private AnchorPane IdentificationAnswerFieldContainer;
-
-    @FXML
-    private TextField IdentificationAnswerTextField;
-
-    @FXML
-    private Pane IdentificationQuestionCard;
-
-    @FXML
-    private TextArea IdentificationQuestionTextArea;
-
-    @FXML
-    private Button MCQAddChoicesButton;
-
-    @FXML
-    private RadioButton MCQChoice1;
-
-    @FXML
-    private ToggleGroup MCQChoices;
-
-    @FXML
-    private AnchorPane MCQContainer;
-
-    @FXML
-    private TextArea MCQTextArea;
-
-    @FXML
-    private Pane MultipleChoiceQuestionCard;
-
-    @FXML
-    private AnchorPane TFChoicesContainer;
-
-    @FXML
-    private Pane TFQuestionCard;
-
-    @FXML
-    private TextArea TFQuestionTextArea;
-
-    @FXML
-    private RadioButton TFfalseRadioButton;
-
-    @FXML
-    private RadioButton TFtrueRadioButton;
+    private BorderPane CreateQuizContainer;
 
     @FXML
     private Button addQuestionButton;
@@ -73,6 +31,9 @@ public class CreateQuizController {
     private ScrollPane createQuizScrollPane;
 
     @FXML
+    private Pane headerBar;
+
+    @FXML
     private RadioButton identificationRadioButton;
 
     @FXML
@@ -86,9 +47,6 @@ public class CreateQuizController {
 
     @FXML
     private TextField quizTitleTextField;
-
-    @FXML
-    private ToggleGroup trueOrFalseChoices;
 
     @FXML
     private RadioButton trueOrFalseRadioButton;

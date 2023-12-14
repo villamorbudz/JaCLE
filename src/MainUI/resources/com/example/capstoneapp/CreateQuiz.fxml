@@ -7,61 +7,75 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="createQuizScrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1051.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.capstoneapp.CreateQuizController">
-   <content>
-      <AnchorPane fx:id="createQuizMainPane" prefHeight="600.0" prefWidth="800.0">
-         <children>
-            <AnchorPane id="createQuizContainer" fx:id="createQuizContainer" layoutX="150.0" layoutY="1.0" prefHeight="600.0" prefWidth="500.0" style="fx-hbar-policy: never; fx-vbar-policy: never;">
+
+<BorderPane fx:id="CreateQuizContainer" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.capstoneapp.CreateQuizController">
+   <center>
+      <ScrollPane fx:id="createQuizScrollPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0">
+         <content>
+            <AnchorPane fx:id="createQuizMainPane" prefHeight="761.0" prefWidth="1017.0">
                <children>
-                  <TextField fx:id="quizTitleTextField" layoutX="1.0" layoutY="21.0" prefHeight="49.0" prefWidth="498.0" promptText="Untitled Quiz" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
-                     <font>
-                        <Font name="System Bold" size="22.0" />
-                     </font>
-                  </TextField>
-                  <TilePane layoutX="17.0" layoutY="92.0" prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane id="createQuizContainer" fx:id="createQuizContainer" layoutX="205.0" layoutY="15.0" prefHeight="745.0" prefWidth="630.0" style="-fx-background-color: lightgray;">
                      <children>
-                        <AnchorPane fx:id="addQuestionButtonPane" prefHeight="27.0" prefWidth="466.0">
+                        <TextField fx:id="quizTitleTextField" layoutX="14.0" layoutY="36.0" prefHeight="49.0" prefWidth="498.0" promptText="Untitled Quiz" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </TextField>
+                        <TilePane layoutX="-1.0" layoutY="93.0" prefHeight="50.0" prefWidth="566.0">
                            <children>
-                              <Button fx:id="addQuestionButton" layoutX="14.0" layoutY="12.0" mnemonicParsing="false" text="+ Add Question">
-                                 <font>
-                                    <Font size="13.0" />
-                                 </font>
-                              </Button>
-                              <AnchorPane fx:id="questionTypeSelectorContainer" layoutX="113.0" layoutY="15.0" prefHeight="32.0" prefWidth="330.0">
+                              <AnchorPane fx:id="addQuestionButtonPane" prefHeight="47.0" prefWidth="631.0">
                                  <children>
-                                    <RadioButton fx:id="multipleChoiceRadioButton" contentDisplay="CENTER" layoutX="18.6" layoutY="2.0" mnemonicParsing="false" text="Multiple Choice" textAlignment="CENTER" AnchorPane.leftAnchor="18.6">
+                                    <Button fx:id="addQuestionButton" layoutX="24.0" layoutY="6.0" mnemonicParsing="false" text="+ Add Question">
                                        <font>
-                                          <Font name="System Bold" size="12.0" />
+                                          <Font size="16.0" />
                                        </font>
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="questionType" />
-                                       </toggleGroup>
-                                    </RadioButton>
-                                    <RadioButton fx:id="trueOrFalseRadioButton" contentDisplay="CENTER" layoutX="137.0" layoutY="2.0" mnemonicParsing="false" text="True or False" textAlignment="CENTER" toggleGroup="$questionType">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </RadioButton>
-                                    <RadioButton fx:id="identificationRadioButton" contentDisplay="CENTER" layoutX="241.0" layoutY="2.0" mnemonicParsing="false" text="Identification" textAlignment="CENTER" toggleGroup="$questionType">
-                                       <font>
-                                          <Font name="System Bold" size="12.0" />
-                                       </font>
-                                    </RadioButton>
+                                    </Button>
+                                    <AnchorPane fx:id="questionTypeSelectorContainer" layoutX="154.0" layoutY="12.0" prefHeight="33.0" prefWidth="473.0">
+                                       <children>
+                                          <RadioButton fx:id="multipleChoiceRadioButton" contentDisplay="CENTER" layoutX="18.6" layoutY="2.0" mnemonicParsing="false" text="Multiple Choice" textAlignment="CENTER" AnchorPane.leftAnchor="18.6">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="questionType" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="trueOrFalseRadioButton" contentDisplay="CENTER" layoutX="173.0" layoutY="2.0" mnemonicParsing="false" text="True or False" textAlignment="CENTER" toggleGroup="$questionType">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </RadioButton>
+                                          <RadioButton fx:id="identificationRadioButton" contentDisplay="CENTER" layoutX="315.0" layoutY="2.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="123.0" text="Identification" textAlignment="CENTER" toggleGroup="$questionType">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </RadioButton>
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </AnchorPane>
                            </children>
-                        </AnchorPane>
+                        </TilePane>
                      </children>
-                  </TilePane>
+                  </AnchorPane>
                </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
             </AnchorPane>
-         </children>
-         <opaqueInsets>
+         </content>
+      </ScrollPane>
+   </center>
+   <top>
+      <Pane fx:id="headerBar" prefHeight="91.0" prefWidth="1024.0" style="-fx-background-color: darkblue;" BorderPane.alignment="CENTER">
+         <BorderPane.margin>
             <Insets />
-         </opaqueInsets>
-      </AnchorPane>
-   </content>
-</ScrollPane>
+         </BorderPane.margin>
+      </Pane>
+   </top>
+</BorderPane>

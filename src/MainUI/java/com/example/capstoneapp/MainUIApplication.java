@@ -11,9 +11,9 @@ public class MainUIApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader createQuiz = new FXMLLoader(MainUIApplication.class.getResource("CreateQuiz.fxml"));
-        Scene scene = new Scene(createQuiz.load(), 800, 600);
+        Scene createQuizScene = new Scene(createQuiz.load(), 1024, 768);
         stage.setTitle("JaCLE | Java Cards for Learning Excellence");
-        stage.setScene(scene);
+        stage.setScene(createQuizScene);
         stage.show();
     }
 
