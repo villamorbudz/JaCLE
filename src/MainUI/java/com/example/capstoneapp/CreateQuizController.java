@@ -1,61 +1,36 @@
 package com.example.capstoneapp;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.TilePane;
 
-public class CreateQuizController {
+import java.io.IOException;
+import java.util.ArrayList;
 
-    @FXML
-    private AnchorPane IdentificationAnswerFieldContainer;
-
-    @FXML
-    private TextField IdentificationAnswerTextField;
-
-    @FXML
-    private Pane IdentificationQuestionCard;
+public class CreateQuizController { @FXML
+private TilePane CardFields;
 
     @FXML
-    private TextArea IdentificationQuestionTextArea;
+    private Button IdentifcationBtn;
 
     @FXML
-    private Button MCQAddChoicesButton;
+    private Button MultipleChoiceBtln;
 
     @FXML
-    private RadioButton MCQChoice1;
+    private Button SaveBtn;
 
     @FXML
-    private ToggleGroup MCQChoices;
-
-    @FXML
-    private AnchorPane MCQContainer;
-
-    @FXML
-    private TextArea MCQTextArea;
-
-    @FXML
-    private Pane MultipleChoiceQuestionCard;
-
-    @FXML
-    private AnchorPane TFChoicesContainer;
-
-    @FXML
-    private Pane TFQuestionCard;
-
-    @FXML
-    private TextArea TFQuestionTextArea;
-
-    @FXML
-    private RadioButton TFfalseRadioButton;
-
-    @FXML
-    private RadioButton TFtrueRadioButton;
+    private Button TrueFalseBtn;
 
     @FXML
     private Button addQuestionButton;
@@ -73,24 +48,61 @@ public class CreateQuizController {
     private ScrollPane createQuizScrollPane;
 
     @FXML
-    private RadioButton identificationRadioButton;
-
-    @FXML
-    private RadioButton multipleChoiceRadioButton;
-
-    @FXML
-    private ToggleGroup questionType;
-
-    @FXML
     private AnchorPane questionTypeSelectorContainer;
 
     @FXML
     private TextField quizTitleTextField;
+    public void AddCard() throws IOException {
+        ToggleAddQuestion();
+    }
 
-    @FXML
-    private ToggleGroup trueOrFalseChoices;
+    public void ToggleAddQuestion(){
+        if(questionTypeSelectorContainer.isDisable() == true) {
+            questionTypeSelectorContainer.setDisable(false);
+            questionTypeSelectorContainer.setVisible(true);
+            addQuestionButton.setDisable(true);
+            addQuestionButton.setVisible(false);
+        }else{
+            questionTypeSelectorContainer.setDisable(true);
+            questionTypeSelectorContainer.setVisible(false);
+            addQuestionButton.setDisable(false);
+            addQuestionButton.setVisible(true);
+        }
 
-    @FXML
-    private RadioButton trueOrFalseRadioButton;
+    }
+
+    public void AddIdentificationCard() throws IOException {
+        AppendToPanel(GetFromTemplate("IdentificationMakeTemplate.fxml"));
+        ToggleAddQuestion();
+    }
+
+    public void AddMultipleChoiceCard() throws IOException {
+        AppendToPanel(GetFromTemplate("MultipleChoiceQuestionCard.fxml"));
+        ToggleAddQuestion();
+    }
+
+    public void AddTrueFalseCard() throws IOException {
+        AppendToPanel(GetFromTemplate("TrueOrFalseQuestionCard.fxml"));
+        ToggleAddQuestion();
+    }
+
+    //FlyWeight?
+    private Pane GetFromTemplate(String url) throws IOException {
+        FXMLLoader Template = new FXMLLoader(MainUIApplication.class.getResource(url));
+        Pane res = (Pane) Template.load();
+        ((Button) res.lookup("#MCQAddChoicesButton")).setOnAction(event -> AddChoice());
+        return res;
+    }
+
+    private void AddChoice(){
+        return;
+    }
+
+
+    private void AppendToPanel(Pane p){
+        ObservableList<Node> classes = CardFields.getChildren();
+        classes.add(classes.size()-1,p);
+    }
+
 
 }
