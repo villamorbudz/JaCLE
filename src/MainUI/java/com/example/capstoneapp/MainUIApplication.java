@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class MainUIApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 800, 600);
-        stage.setTitle("Hello!");
+        FXMLLoader createQuiz = new FXMLLoader(MainUIApplication.class.getResource("CreateQuiz.fxml"));
+        Scene scene = new Scene(createQuiz.load(), 800, 600);
+        stage.setTitle("JaCLE | Java Cards for Learning Excellence");
         stage.setScene(scene);
         stage.show();
     }
