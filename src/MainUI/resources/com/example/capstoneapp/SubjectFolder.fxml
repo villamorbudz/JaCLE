@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="subjectFolderPane" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: lightgray;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.capstoneapp.SubjectFolderController">
+   <children>
+      <BorderPane fx:id="subjectFolderContainer" layoutX="-6.0" layoutY="-2.0" prefHeight="768.0" prefWidth="1024.0">
+         <center>
+            <AnchorPane fx:id="quizListContainer" prefHeight="809.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="quizListPane" cacheShape="false" centerShape="false" layoutX="196.0" pickOnBounds="false" prefHeight="780.0" prefWidth="650.0" scaleShape="false" style="-fx-background-color: lightgray;">
+                     <children>
+                        <Button fx:id="exampleQuizButton" layoutX="41.0" layoutY="24.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="569.0" text="EXAMPLE QUIZ #1">
+                           <font>
+                              <Font size="28.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="addQuizButton" layoutX="42.0" layoutY="103.0" mnemonicParsing="false" text="+ Add Quiz">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <Pane fx:id="headerPane" prefHeight="97.0" prefWidth="1036.0" BorderPane.alignment="CENTER">
+               <children>
+                  <TextField fx:id="SubjectNameText" layoutX="169.0" layoutY="18.0" prefHeight="59.0" prefWidth="750.0" text="New Subject">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </Pane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>
